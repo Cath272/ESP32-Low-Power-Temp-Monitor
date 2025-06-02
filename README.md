@@ -31,6 +31,12 @@ Generic 1W 5V Solar panel
 
 ## Bill of Materials
 
+| Component           |         Image                                                                                         |         Model  |           Pcs | Price           | Link          |
+| -------------       |                                                                                        -------------  | -------------  | ------------- | --------------- | ------------- |
+| ESP32-C6-WROOM-1-N8  |  ![Esp32 c6](https://assets.lcsc.com/images/lcsc/900x900/20240825_Espressif-Systems-ESP32-C6-WROOM-1-N8_C5366877_blank.jpg)        | ESP32-C6-WROOM-1-N8 | 1             | € 4.91          |   [LCSC](https://www.lcsc.com/product-detail/WiFi-Modules_Espressif-Systems-ESP32-C6-WROOM-1-N8_C5366877.html?s_z=n_esp32-c6-wroom)  |
+|Buck Boost Coverter  | ![Screenshot ](https://github.com/user-attachments/assets/268663cf-1794-42c4-8324-cbcd939803ec)       |   TPS63020     | 1             | 3.5EU10/Pcs 0.35EUR/Pcs          | [LCSC](https://www.lcsc.com/product-detail/Timers-Counters_Texas-Instruments-TPL5111DDCR_C2870554.html?s_z=n_tpl5111)) |
+| TPL5111        | ![images](https://github.com/user-attachments/assets/ea21eece-a85f-4848-8467-17d25432dda0)            | TPL5111         | 1             | € 0.47       | [LCSC](https://www.lcsc.com/product-detail/Timers-Counters_Texas-Instruments-TPL5111DDCR_C2870554.html?s_z=n_tpl5111) |       
+
 ## PCB
 
 
