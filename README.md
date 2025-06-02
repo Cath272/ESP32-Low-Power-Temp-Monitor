@@ -6,6 +6,10 @@ ESP32 Low Power Temp Monitor is an ESP32 C6 based low power Temperature and Humi
 The device reads the temperature, relative humidity and barometric pressure  and displays it on an 4.2 inch Epaper Display, alonside the current date and time.
 The device is awake just for a few seconds as it reads the tempereature and displays it and then goes to sleep. It performs a reading every minute.
 One a day it connects to WiFi and checks the current time to sync up with an NTP server to account for Daylight saving time and potential drifts in the internal esp32 real time clock.
+
+In the project files you may find ESP32-C3 instead of ESP32-C6. I named it wrong when i created the project. The issue is just the file names, the footprints are correct and use a C6.
+The TPL5111 is currenly does not work properly so i emulated it in software using the esp32 deep sleep.
+
 ### Block diagram
 ![block diagram](https://github.com/user-attachments/assets/7f155fd0-e7f8-4665-8b3d-cabae4bbd585)
 
@@ -31,18 +35,34 @@ Generic 1W 5V Solar panel
 
 ## Bill of Materials
 
-| Component           |         Image                                                                                         |         Model  |           Pcs | Price           | Link          |
-| -------------       |                                                                                        -------------  | -------------  | ------------- | --------------- | ------------- |
-| ESP32-C6-WROOM-1-N8  |  ![Esp32 c6](https://assets.lcsc.com/images/lcsc/900x900/20240825_Espressif-Systems-ESP32-C6-WROOM-1-N8_C5366877_blank.jpg)        | ESP32-C6-WROOM-1-N8 | 1             | € 4.91          |   [LCSC](https://www.lcsc.com/product-detail/WiFi-Modules_Espressif-Systems-ESP32-C6-WROOM-1-N8_C5366877.html?s_z=n_esp32-c6-wroom)  |
-|Buck Boost Coverter  | ![Screenshot ](https://github.com/user-attachments/assets/268663cf-1794-42c4-8324-cbcd939803ec)       |   TPS63020     | 1             | 3.5EU10/Pcs 0.35EUR/Pcs          | [LCSC](https://www.lcsc.com/product-detail/Timers-Counters_Texas-Instruments-TPL5111DDCR_C2870554.html?s_z=n_tpl5111)) |
-| TPL5111        | ![images](https://github.com/user-attachments/assets/ea21eece-a85f-4848-8467-17d25432dda0)            | TPL5111         | 1             | € 0.47       | [LCSC](https://www.lcsc.com/product-detail/Timers-Counters_Texas-Instruments-TPL5111DDCR_C2870554.html?s_z=n_tpl5111) |       
+| Component           |         Image                                                                                         |         Model  |           Pcs | Price           | 
+| -------------       |                                                                                        -------------  | -------------  | ------------- | --------------- |
+| ESP32-C6-WROOM-1-N8  |  ![Esp32 c6](https://assets.lcsc.com/images/lcsc/900x900/20240825_Espressif-Systems-ESP32-C6-WROOM-1-N8_C5366877_blank.jpg)        | ESP32-C6-WROOM-1-N8 | 1             | € 4.91          |
+|Buck Boost Coverter  | ![Screenshot ](https://github.com/user-attachments/assets/268663cf-1794-42c4-8324-cbcd939803ec)       |   TPS63020     | 1             | € 0.52          | 
+| TPL5111        | ![images](https://assets.lcsc.com/images/lcsc/900x900/20230122_Texas-Instruments-TPL5111DDCR_C2870554_front.jpg)            | TPL5111         | 1             | € 0.47       |     
+| BME280        | ![images](https://assets.lcsc.com/images/lcsc/900x900/20230217_Bosch-Sensortec-BME280_C92489_front.jpg)            | BME280         | 1             | € 2.78      |
+| MCP7381        | ![images](https://assets.lcsc.com/images/lcsc/900x900/20180914_Microchip-Tech-MCP73812T-420I-OT_C144308_front.jpg)            | MCP7381         | 1             | € 0.84      |
+| Solar Panel        | ![images](https://ae-pic-a1.aliexpress-media.com/kf/Sfc9f51dd00154d2a8cfb73cd2f78d38bW.jpg_960x960q75.jpg_.avif)            | 5V 1W Solar Panel         | 1             | € 2.23       |
+| 4.2 Inch Epaper Display | ![images](https://ae-pic-a1.aliexpress-media.com/kf/Sac4ad89e401f44f3a886430887d86d69h.jpg_960x960q75.jpg_.avif)            | GDEY042Z98         | 1             | € 11.64       |
+
 
 ## PCB
 
+![front_3d](https://github.com/user-attachments/assets/d808d23c-5207-4c4c-b3c6-4fadc37c807d)
+![front](https://github.com/user-attachments/assets/d5231514-abba-429d-a512-3c7c42c4a00e)
 
 
+## Case and 3d design
 
+The case was make using autocad and exported to stl
+The stl files can be found in the 3D Parts folder
+
+
+The gerber production zip file can be found in the Production folder
 ## Software Design
+
+The device wakes up, connect to wifi on the first boot, reads the time from an NTP server, and then for the next 24 hours it just reads the temperature and displays it. The time is kept in a register while the esp sleeps and increments it on every boot. Every 24 hours it connect to Wifi to check the time again for accuracy.
+The program can be found in the Project_Code folder
 
 ### Display
 The program is based around the [GxEPD2](https://github.com/ZinggJM/GxEPD2) libary for interfacing with the Epaper display,   
