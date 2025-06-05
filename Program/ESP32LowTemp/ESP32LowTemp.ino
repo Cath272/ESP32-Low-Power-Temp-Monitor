@@ -59,8 +59,8 @@ const unsigned char wifiIcon [] PROGMEM = {
 #include <ezTime.h>
 #include <WiFi.h>
 
-const char* ssid       = "TP-Link_44CE";
-const char* password   = "87387742";
+const char* ssid       = "UPB-Guest";
+const char* password   = "";
 
 
 
@@ -111,7 +111,7 @@ void setup()
   // Update time
   if (boot_count == 1 || ((boot_count - 1) % 1440 == 0) ) {
     // First boot: assume an approximate start time (e.g., 0 or set manually)
-    WiFi.begin(ssid, password);
+    WiFi.begin(ssid);
     waitForSync();
     RomaniaTime.setLocation("RO");
     Serial.println("Getting Time fron NTP Server");
