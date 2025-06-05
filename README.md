@@ -32,7 +32,7 @@ Small 250Mah generic Li-ion cell with protection, used because of its small size
 Generic 1W 5V Solar panel 
 
 ## Schematic
-
+[Schematic](PCB/ESP32%20%20C3%20Zigbee%20Temp/ESP32%20%20C3%20Zigbee%20Temp.pdf)
 ## Bill of Materials
 
 | Component           |         Image                                                                                         |         Model  |           Pcs | Price           | 
