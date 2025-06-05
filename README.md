@@ -82,6 +82,8 @@ For time i used 4 libraries:
 
 
 ## Results
+![20250605_153828](https://github.com/user-attachments/assets/c3cd7984-27e2-4c95-8f2e-7cf2528b2a08)
+![20250605_153837](https://github.com/user-attachments/assets/1b07f9c0-f66d-4d23-aac5-b7c0be39ec1e)
 
 ## Resources
 - [ESP32Time](https://github.com/fbiego/ESP32Time)
